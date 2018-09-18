@@ -16,6 +16,25 @@ RSpec.describe "Tweets API", type: :request do
     end
   end
 
+  describe "GET /tweets?category=Cat1" do
+    let!(:tweets) do
+      create_list :tweet, 3, category: "Cat1"
+      create_list :tweet, 2
+      create_list :tweet, 5, category: "Another Category"
+    end
+
+    before { get "/tweets?category=Cat1" }
+
+    it "returns tweets" do
+      expect(json).not_to be_empty
+      expect(json.size).to eq 3
+    end
+
+    it "responses with status code 200" do
+      expect(response).to have_http_status(200)
+    end
+  end # describe
+
   def json
     JSON.parse(response.body)
   end
