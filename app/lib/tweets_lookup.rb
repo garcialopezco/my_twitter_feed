@@ -2,15 +2,16 @@ class TweetsLookup
   attr_reader :client
 
   def initialize(strategy: "recent", count: 10)
-    @client = TweetsLookup.api
+    @client   = TweetsLookup.api
     @strategy = strategy
-    @count = count
+    @count    = count
   end
 
   def search(term)
-    client.search("#{term} -rt", result_type: @strategy, count: @count)
+    results = client.search("#{term} -rt", result_type: @strategy, count: @count)
+    results.to_h[:statuses]
   rescue Twitter::Error::Unauthorized => e
-    { statuses: [] }
+    []
   end
 
   def self.api

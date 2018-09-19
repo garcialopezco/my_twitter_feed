@@ -31,5 +31,10 @@ module MyTwitterFeed
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.x.categories_for_tweets      = ["healthcare", "nasa", "open source"]
+    # Strategy could be recent, mixed, popular
+    config.x.tweets_search_strategy     = "recent"
+    config.x.number_of_tweets_to_import = 10
   end
 end

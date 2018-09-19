@@ -19,15 +19,15 @@ RSpec.describe TweetsImporter do
   describe "#import!" do
     context "when categories are provided" do
       let(:healthcare_tweets) {
-        JSON.parse(file_fixture("healthcare.json").read, object_class: OpenStruct)
+        JSON.parse(file_fixture("healthcare.json").read, symbolize_names: true)
       }
 
       let(:nasa_tweets) {
-        JSON.parse(file_fixture("nasa.json").read, object_class: OpenStruct)
+        JSON.parse(file_fixture("nasa.json").read, symbolize_names: true)
       }
 
       let(:open_source_tweets) {
-        JSON.parse(file_fixture("open_source.json").read, object_class: OpenStruct)
+        JSON.parse(file_fixture("open_source.json").read, symbolize_names: true)
       }
 
       before :each do
