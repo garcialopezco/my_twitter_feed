@@ -3,6 +3,7 @@ class TweetsImportJob < ApplicationJob
 
   def perform
     tweets_importer.import!
+    enqueue_for_later
   end
 
   private
@@ -17,5 +18,9 @@ class TweetsImportJob < ApplicationJob
         strategy:   Rails.configuration.x.tweets_search_strategy,
         count:      Rails.configuration.x.number_of_tweets_to_import
       }
+    end
+
+    def enqueue_for_later
+      TweetsImportJob.set(wait: 5.minutes).perform_later
     end
 end
