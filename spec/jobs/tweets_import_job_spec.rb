@@ -15,7 +15,7 @@ RSpec.describe TweetsImportJob, type: :job do
     importer = double "TweetsImporter", import!: nil
     allow(TweetsImporter).to receive(:new).and_return importer
     config = {
-      categories: ["Ruby on Rails", "React", "Linux"],
+      categories: ["Ruby on Rails", "ReactJS", "Linux"],
       strategy:   "recent",
       count:      15
     }
