@@ -32,9 +32,10 @@ module MyTwitterFeed
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.x.categories_for_tweets      = ["healthcare", "nasa", "open source"]
+    config.x.categories_for_tweets      = ["Ruby on Rails", "React", "Linux"]
     # Strategy could be recent, mixed, popular
     config.x.tweets_search_strategy     = "recent"
-    config.x.number_of_tweets_to_import = 10
+    # Number of tweets to retrieve each time, twitter default is 15
+    config.x.number_of_tweets_to_import = 15
   end
 end

@@ -15,9 +15,9 @@ RSpec.describe TweetsImportJob, type: :job do
     importer = double "TweetsImporter", import!: nil
     allow(TweetsImporter).to receive(:new).and_return importer
     config = {
-      categories: ["healthcare", "nasa", "open source"],
+      categories: ["Ruby on Rails", "React", "Linux"],
       strategy:   "recent",
-      count:      10
+      count:      15
     }
 
     perform_enqueued_jobs { job }
