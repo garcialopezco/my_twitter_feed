@@ -2,7 +2,17 @@
 
 ## Use Docker
 
-This branch adds a Dockerfile and a docker-compose configuration so the project can be run using docker
+This branch adds a Dockerfile and a docker-compose configuration so the project can be run using docker.
+
+How to test:
+
+```bash
+$ docker-compose build
+$ docker-compose up
+$ docker-compose run web rake db:create
+$ docker-compose run web rake db:migrate
+$ docker-compose run web rake import_tweets
+```
 
 ### ENV Variables
 
