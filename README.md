@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Use Docker
 
-Things you may want to cover:
+This branch adds a Dockerfile and a docker-compose configuration so the project can be run using docker
 
-* Ruby version
+### ENV Variables
 
-* System dependencies
+Since I am using dotenv gem, when we copy all the settings into the docker container, the .env files is copied too soit is not necessary to add ENV variables into the docker-compose file.
 
-* Configuration
+The actual .env file contains the TWITTER CREDENTIALS
 
-* Database creation
+```bash
+TWITTER_CONSUMER_KEY=key
+TWITTER_CONSUMER_SECRET=secret
+TWITTER_ACCESS_TOKEN=token
+TWITTER_ACCESS_TOKEN__SECRET=token_secret
+```
 
-* Database initialization
+### What's Next?
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Test the Deploy to Heroku
